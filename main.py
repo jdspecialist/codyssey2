@@ -31,23 +31,16 @@ def get_menu_choice():
         return number
 
 
-from game import QuizGame, DEFAULT_QUIZZES
-
-
 def main():
-    game = QuizGame(DEFAULT_QUIZZES)
-
     while True:
         show_menu()
         choice = get_menu_choice()
 
-        if choice == 1:
-            game.play_quiz()
-        elif choice == 5:
+        if choice == 5:
             print("👋 프로그램을 종료합니다.")
             break
-        else:
-            print("아직 구현되지 않은 기능입니다.")
+
+        print("아직 구현되지 않은 기능입니다.")
 
 
 if __name__ == "__main__":
