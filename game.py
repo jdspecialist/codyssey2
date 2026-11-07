@@ -31,6 +31,51 @@ DEFAULT_QUIZZES = [
 
 
 class QuizGame:
+
+    def add_quiz(self):
+        print("\n📌 새로운 퀴즈를 추가합니다.")
+
+        question = input("문제를 입력하세요: ").strip()
+
+        if question == "":
+            print("⚠️ 문제를 입력하지 않았습니다. 퀴즈 추가를 취소합니다.")
+            return
+
+        choices = []
+
+        for number in range(1, 5):
+            choice = input(f"선택지 {number}: ").strip()
+
+            if choice == "":
+                print("⚠️ 선택지를 입력하지 않았습니다. 퀴즈 추가를 취소합니다.")
+                return
+
+            choices.append(choice)
+
+        while True:
+            answer_input = input("정답 번호 (1-4): ").strip()
+
+            if answer_input == "":
+                print("⚠️ 빈 입력입니다. 1-4 사이의 숫자를 입력하세요.")
+                continue
+
+            if not answer_input.isdigit():
+                print("⚠️ 잘못된 입력입니다. 1-4 사이의 숫자를 입력하세요.")
+                continue
+
+            answer = int(answer_input)
+
+            if answer < 1 or answer > 4:
+                print("⚠️ 잘못된 입력입니다. 1-4 사이의 숫자를 입력하세요.")
+                continue
+
+            break
+
+        new_quiz = Quiz(question, choices, answer)
+        self.quizzes.append(new_quiz)
+
+        print("✅ 퀴즈가 추가되었습니다!")
+
     def __init__(self, quizzes=None, best_score=0):
         self.quizzes = quizzes if quizzes is not None else []
         self.best_score = best_score
