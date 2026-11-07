@@ -1,5 +1,6 @@
 from quiz import Quiz
 
+
 DEFAULT_QUIZZES = [
     Quiz(
         "Python에서 변수를 만드는 방법으로 올바른 것은?",
@@ -27,6 +28,7 @@ DEFAULT_QUIZZES = [
         2
     ),
 ]
+
 
 class QuizGame:
     def __init__(self, quizzes=None, best_score=0):
