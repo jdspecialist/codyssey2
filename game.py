@@ -147,5 +147,8 @@ class QuizGame:
         print("----------------------------------------")
 
     def show_best_score(self):
-        print("\n🏆 최고 점수 확인")
-        print(f"현재 최고 점수: {self.best_score}점")
+        if self.best_score == 0:
+            print("⚠️ 아직 퀴즈를 풀지 않았습니다.")
+            return
+
+        print(f"\n🏆 최고 점수: {self.best_score}점")
