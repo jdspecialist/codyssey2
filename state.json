@@ -1,0 +1,65 @@
+{
+  "quizzes": [
+    {
+      "question": "Python에서 변수를 만드는 방법으로 올바른 것은?",
+      "choices": [
+        "x = 10",
+        "int x = 10",
+        "let x = 10",
+        "var x = 10"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Python에서 문자열을 나타내는 자료형은?",
+      "choices": [
+        "int",
+        "str",
+        "bool",
+        "list"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Python에서 조건문을 만드는 키워드는?",
+      "choices": [
+        "if",
+        "for",
+        "while",
+        "def"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Python에서 반복문으로 사용할 수 있는 키워드는?",
+      "choices": [
+        "if",
+        "for",
+        "class",
+        "return"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Python에서 함수를 정의할 때 사용하는 키워드는?",
+      "choices": [
+        "func",
+        "def",
+        "function",
+        "define"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "노벨상 수상자가 아닌 사함은?",
+      "choices": [
+        "데이비드 베이커",
+        "데미스 허사비스",
+        "존 점퍼",
+        "일리야 수츠케버"
+      ],
+      "answer": 4
+    }
+  ],
+  "best_score": 0
+}
