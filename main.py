@@ -43,17 +43,26 @@ def main():
 
         if choice == 1:
             game.play_quiz()
+
+        elif choice == 2:
+            game.add_quiz()
+
+        elif choice == 3:
+            game.show_quizzes()
+
+        elif choice == 4:
+            game.show_best_score()
+
         elif choice == 5:
             print("👋 프로그램을 종료합니다.")
             break
-        else:
-            print("아직 구현되지 않은 기능입니다.")
-
 
 if __name__ == "__main__":
     try:
         main()
+
     except KeyboardInterrupt:
         print("\n⚠️ 프로그램을 안전하게 종료합니다.")
+
     except EOFError:
         print("\n⚠️ 입력이 종료되어 프로그램을 안전하게 종료합니다.")

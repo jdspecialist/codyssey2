@@ -32,6 +32,10 @@ DEFAULT_QUIZZES = [
 
 class QuizGame:
 
+    def __init__(self, quizzes=None, best_score=0):
+        self.quizzes = quizzes if quizzes is not None else []
+        self.best_score = best_score
+
     def add_quiz(self):
         print("\n📌 새로운 퀴즈를 추가합니다.")
 
@@ -76,10 +80,6 @@ class QuizGame:
 
         print("✅ 퀴즈가 추가되었습니다!")
 
-    def __init__(self, quizzes=None, best_score=0):
-        self.quizzes = quizzes if quizzes is not None else []
-        self.best_score = best_score
-
     def play_quiz(self):
         if not self.quizzes:
             print("⚠️ 등록된 퀴즈가 없습니다.")
@@ -117,7 +117,7 @@ class QuizGame:
             else:
                 print("❌ 틀렸습니다!")
 
-        score = correct_count * 20
+        score = int((correct_count / len(self.quizzes)) * 100)
 
         print("\n========================================")
         print(f"🏆 결과: {len(self.quizzes)}문제 중 {correct_count}문제 정답! ({score}점)")
@@ -126,3 +126,19 @@ class QuizGame:
         if score > self.best_score:
             self.best_score = score
             print("🎉 새로운 최고 점수입니다!")
+
+    def show_quizzes(self):
+        print("\n📋 등록된 퀴즈 목록")
+
+        if not self.quizzes:
+            print("등록된 퀴즈가 없습니다.")
+            return
+
+        for index, quiz in enumerate(self.quizzes, start=1):
+            print(f"[{index}] {quiz.question}")
+
+        print(f"\n총 {len(self.quizzes)}개의 퀴즈가 등록되어 있습니다.")
+
+    def show_best_score(self):
+        print("\n🏆 최고 점수 확인")
+        print(f"현재 최고 점수: {self.best_score}점")
