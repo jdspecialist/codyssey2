@@ -1,4 +1,5 @@
 from quiz import Quiz
+from storage import save_state
 
 
 DEFAULT_QUIZZES = [
@@ -35,6 +36,9 @@ class QuizGame:
     def __init__(self, quizzes=None, best_score=0):
         self.quizzes = quizzes if quizzes is not None else []
         self.best_score = best_score
+
+    def save(self):
+        save_state(self.quizzes, self.best_score)
 
     def add_quiz(self):
         print("\n📌 새로운 퀴즈를 추가합니다.")
@@ -79,6 +83,7 @@ class QuizGame:
         self.quizzes.append(new_quiz)
 
         print("✅ 퀴즈가 추가되었습니다!")
+        self.save()  # 퀴즈 추가 후 상태 저장
 
     def play_quiz(self):
         if not self.quizzes:
@@ -126,6 +131,7 @@ class QuizGame:
         if score > self.best_score:
             self.best_score = score
             print("🎉 새로운 최고 점수입니다!")
+            self.save()  # 최고 점수 갱신 후 상태 저장
 
     def show_quiz_list(self):
         if not self.quizzes:

@@ -1,4 +1,6 @@
 from game import QuizGame, DEFAULT_QUIZZES
+from quiz import Quiz
+from storage import load_state
 
 
 def show_menu():
@@ -35,7 +37,23 @@ def get_menu_choice():
 
 
 def main():
-    game = QuizGame(DEFAULT_QUIZZES)
+    state = load_state()
+
+    quizzes = []
+
+    for quiz_data in state["quizzes"]:
+        quizzes.append(
+            Quiz(
+                quiz_data["question"],
+                quiz_data["choices"],
+                quiz_data["answer"]
+            )
+        )
+
+    if not quizzes:
+        quizzes = DEFAULT_QUIZZES
+
+    game = QuizGame(quizzes, state["best_score"])
 
     while True:
         show_menu()
@@ -43,19 +61,19 @@ def main():
 
         if choice == 1:
             game.play_quiz()
-
+            game.save()
         elif choice == 2:
             game.add_quiz()
-
+            game.save()
         elif choice == 3:
             game.show_quiz_list()
-
         elif choice == 4:
             game.show_best_score()
-
         elif choice == 5:
+            game.save()
             print("👋 프로그램을 종료합니다.")
             break
+
 
 if __name__ == "__main__":
     try:
