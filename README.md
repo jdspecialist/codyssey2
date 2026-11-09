@@ -63,3 +63,5 @@ docs/
 - `choices`: 선택지 4개
 - `answer`: 정답 번호
 - `best_score`: 최고 점수
+
+- clone 및 pull 실습을 완료했습니다.
