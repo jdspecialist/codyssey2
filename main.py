@@ -48,7 +48,7 @@ def main():
             game.add_quiz()
 
         elif choice == 3:
-            game.show_quizzes()
+            game.show_quiz_list()
 
         elif choice == 4:
             game.show_best_score()

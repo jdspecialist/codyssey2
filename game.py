@@ -127,17 +127,18 @@ class QuizGame:
             self.best_score = score
             print("🎉 새로운 최고 점수입니다!")
 
-    def show_quizzes(self):
-        print("\n📋 등록된 퀴즈 목록")
-
+    def show_quiz_list(self):
         if not self.quizzes:
-            print("등록된 퀴즈가 없습니다.")
+            print("⚠️ 등록된 퀴즈가 없습니다.")
             return
+
+        print(f"\n📋 등록된 퀴즈 목록 (총 {len(self.quizzes)}개)")
+        print("----------------------------------------")
 
         for index, quiz in enumerate(self.quizzes, start=1):
             print(f"[{index}] {quiz.question}")
 
-        print(f"\n총 {len(self.quizzes)}개의 퀴즈가 등록되어 있습니다.")
+        print("----------------------------------------")
 
     def show_best_score(self):
         print("\n🏆 최고 점수 확인")
