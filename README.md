@@ -64,4 +64,25 @@ docs/
 - `answer`: 정답 번호
 - `best_score`: 최고 점수
 
+## 커밋 메시지 규칙
+
+형식: 종류: 변경 내용 요약
+
+- Feat: 새로운 기능
+- Fix: 오류 수정
+- Refactor: 동작을 유지하면서 구조 개선
+- Docs: 문서 작성 및 수정
+- Test: 테스트 추가 및 검증 기록
+
+예시:
+- Feat: 퀴즈 목록 조회 기능 구현
+- Fix: 0점과 미플레이 상태 구분
+- Docs: 데이터 복구 절차 작성
+
+## 설계 및 검증 자료
+
+- [클래스 설계와 변경 영향 범위](docs/design.md)
+- [입력·저장·종료 테스트 결과](docs/test-results.md)
+- [Git 커밋·브랜치·clone·pull 기록](docs/git-workflow.md)
+
 - clone 및 pull 실습을 완료했습니다.
