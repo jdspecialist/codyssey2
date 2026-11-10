@@ -33,7 +33,7 @@ DEFAULT_QUIZZES = [
 
 class QuizGame:
 
-    def __init__(self, quizzes=None, best_score=0):
+    def __init__(self, quizzes=None, best_score=None):  # 초기값을 None으로 설정하여 플레이 여부 구분
         self.quizzes = quizzes if quizzes is not None else []
         self.best_score = best_score
 
@@ -128,7 +128,8 @@ class QuizGame:
         print(f"🏆 결과: {len(self.quizzes)}문제 중 {correct_count}문제 정답! ({score}점)")
         print("========================================")
 
-        if score > self.best_score:
+        # 최초 플레이(None)이거나 새 점수가 기존 최고 점수보다 높을 때 갱신
+        if self.best_score is None or score > self.best_score:
             self.best_score = score
             print("🎉 새로운 최고 점수입니다!")
             self.save()  # 최고 점수 갱신 후 상태 저장
@@ -147,7 +148,8 @@ class QuizGame:
         print("----------------------------------------")
 
     def show_best_score(self):
-        if self.best_score == 0:
+        # 플레이한 적 없는 상태(None)와 0점을 엄격히 구분
+        if self.best_score is None:
             print("⚠️ 아직 퀴즈를 풀지 않았습니다.")
             return
 
